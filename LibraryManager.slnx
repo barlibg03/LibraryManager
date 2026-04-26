@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="D:/PC-tu/Solution1/LibraryManager.Core/LibraryManager.Core.csproj" Id="40b5d1f0-3391-478d-8b68-14919ebd089d" />
+  <Project Path="D:/PC-tu/Solution1/LibraryManager.Data/LibraryManager.Data.csproj" Id="0751f8e4-18ac-4477-afbe-8a22ea1b428a" />
+  <Project Path="D:/PC-tu/Solution1/WinForms/WinForms.csproj" />
+  <Project Path="D:/PC-tu/Solution1/WPF/WPF.csproj" />
+</Solution>
