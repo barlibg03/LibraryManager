@@ -27,7 +27,7 @@ namespace LibraryManager.WPF
 
 		private void FavoritesGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
 		{
-			// SelectionChanged се handle-ва от binding-а (SelectedFavoriteSong)
+			
 		}
 
 		private void Search_Click(object sender, RoutedEventArgs e)

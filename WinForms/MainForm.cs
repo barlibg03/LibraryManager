@@ -51,7 +51,7 @@ namespace WinForms
 
 		private void AddUser_Click_1(object sender, EventArgs e)
 		{
-			// ✅ ПОПРАВЕНО: Email има default стойност ако е празен
+		
 			var user = new User
 			{
 				Username = string.IsNullOrWhiteSpace(Username.Text) ? "Unknown" : Username.Text.Trim(),

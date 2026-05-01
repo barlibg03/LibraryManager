@@ -27,7 +27,6 @@ namespace WPF
 
 			if (user != null)
 			{
-				// ✅ ВАЖНО: трябва да се подаде user обекта на MainWindow
 				MainWindow main = new MainWindow(user);
 				main.Show();
 				this.Close();

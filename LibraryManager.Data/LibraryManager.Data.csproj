@@ -204,7 +204,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Data\RepositoryFactory.cs" />
     <Compile Include="Data\SqliteMusicRepository.cs" />
     <Compile Include="Data\SqlMusicRepository.cs" />

@@ -21,7 +21,6 @@ namespace LibraryManager.Data.Data
 			CreateTables();
 		}
 
-		// ================= CREATE TABLES =================
 		private void CreateTables()
 		{
 			using (var con = new SqliteConnection(connectionString))
@@ -75,7 +74,6 @@ namespace LibraryManager.Data.Data
 			}
 		}
 
-		// ================= SONGS =================
 		public List<Song> GetSongs()
 		{
 			var list = new List<Song>();
@@ -134,7 +132,6 @@ namespace LibraryManager.Data.Data
 			}
 		}
 
-		// ================= USERS =================
 		public List<User> GetUsers()
 		{
 			var list = new List<User>();
@@ -191,7 +188,6 @@ namespace LibraryManager.Data.Data
 			}
 		}
 
-		// ================= FAVORITES =================
 
 		public List<Song> GetFavorites(int userId)
 		{

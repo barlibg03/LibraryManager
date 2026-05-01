@@ -12,7 +12,6 @@ namespace LibraryManager.Core.ViewModels
 	{
 		private readonly IMusicRepository repo;
 
-		// Всички песни от базата данни
 		private List<Song> allSongs = new List<Song>();
 
 		public ObservableCollection<Song> Songs { get; set; }
@@ -22,8 +21,6 @@ namespace LibraryManager.Core.ViewModels
 			= new ObservableCollection<User>();
 
 		public User CurrentUser { get; set; }
-
-		// ================= SELECTED =================
 
 		private Song selectedSong;
 		public Song SelectedSong
@@ -48,7 +45,6 @@ namespace LibraryManager.Core.ViewModels
 			}
 		}
 
-		// ✅ ДОБАВЕНО: липсваше в оригинала, XAML го bind-ваше
 		private Song selectedFavoriteSong;
 		public Song SelectedFavoriteSong
 		{
@@ -60,7 +56,6 @@ namespace LibraryManager.Core.ViewModels
 			}
 		}
 
-		// ================= FILTERS =================
 
 		private string titleFilter;
 		public string TitleFilter
@@ -84,7 +79,6 @@ namespace LibraryManager.Core.ViewModels
 			}
 		}
 
-		// ================= FAVORITES =================
 
 		public ObservableCollection<Song> SelectedUserFavorites =>
 			CurrentUser?.FavoriteSongs;
@@ -92,7 +86,6 @@ namespace LibraryManager.Core.ViewModels
 		public ObservableCollection<Song> FavoriteSongs =>
 			CurrentUser?.FavoriteSongs;
 
-		// ================= CONSTRUCTOR =================
 
 		public MainViewModel(IMusicRepository repository, User user = null)
 		{
@@ -110,7 +103,6 @@ namespace LibraryManager.Core.ViewModels
 			}
 		}
 
-		// ================= LOAD DATA =================
 
 		private void LoadSongs()
 		{
@@ -131,8 +123,6 @@ namespace LibraryManager.Core.ViewModels
 				Users.Add(u);
 		}
 
-		// ================= SONGS CRUD =================
-
 		public void AddSong(Song song)
 		{
 			if (song == null) return;
@@ -148,8 +138,6 @@ namespace LibraryManager.Core.ViewModels
 			repo.DeleteSong(SelectedSong.Id);
 			LoadSongs();
 		}
-
-		// ================= USERS CRUD =================
 
 		public void AddUser(User user)
 		{
@@ -167,15 +155,13 @@ namespace LibraryManager.Core.ViewModels
 			LoadUsers();
 		}
 
-		// ================= FAVORITES =================
-
 		public void AddFavorite()
 		{
 			if (CurrentUser == null || SelectedSong == null) return;
 
 			if (!CurrentUser.FavoriteSongs.Any(x => x.Id == SelectedSong.Id))
 			{
-				repo.AddFavorite(CurrentUser.Id, SelectedSong.Id); // ← ДОБАВИ
+				repo.AddFavorite(CurrentUser.Id, SelectedSong.Id); 
 				CurrentUser.FavoriteSongs.Add(SelectedSong);
 				OnPropertyChanged(nameof(FavoriteSongs));
 				OnPropertyChanged(nameof(SelectedUserFavorites));
@@ -194,14 +180,13 @@ namespace LibraryManager.Core.ViewModels
 
 			if (song != null)
 			{
-				repo.RemoveFavorite(CurrentUser.Id, song.Id); // ← ДОБАВИ
+				repo.RemoveFavorite(CurrentUser.Id, song.Id); 
 				CurrentUser.FavoriteSongs.Remove(song);
 				OnPropertyChanged(nameof(FavoriteSongs));
 				OnPropertyChanged(nameof(SelectedUserFavorites));
 			}
 		}
 
-		// ✅ ДОБАВЕНО: методът липсваше — MainWindow.xaml.cs го извикваше
 		public void ApplyFilter()
 		{
 			Songs.Clear();

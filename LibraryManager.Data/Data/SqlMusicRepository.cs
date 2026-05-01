@@ -7,7 +7,7 @@ namespace LibraryManager.Data.Data
 {
 	public class SqlMusicRepository : IMusicRepository
 	{
-		// ✅ ПОПРАВЕНО: използваме MusicDb, не master
+
 		private string connectionString =
 			"Server=localhost\\SQLEXPRESS;Database=MusicDb;Trusted_Connection=True;Encrypt=False;";
 
@@ -18,7 +18,6 @@ namespace LibraryManager.Data.Data
 			SeedData();
 		}
 
-		// ✅ НОВО: създаваме MusicDb ако не съществува (връзката е към master)
 		private void EnsureDatabase()
 		{
 			string masterConnection =
@@ -35,7 +34,6 @@ namespace LibraryManager.Data.Data
 			}
 		}
 
-		// ================= CREATE TABLES =================
 		private void CreateTables()
 		{
 			using (var con = new SqlConnection(connectionString))
@@ -76,7 +74,6 @@ namespace LibraryManager.Data.Data
 			}
 		}
 
-		// ================= SEED DATA =================
 		private void SeedData()
 		{
 			using (var con = new SqlConnection(connectionString))
@@ -112,7 +109,6 @@ namespace LibraryManager.Data.Data
 			}
 		}
 
-		// ================= SONGS =================
 		public List<Song> GetSongs()
 		{
 			var list = new List<Song>();
@@ -166,8 +162,6 @@ namespace LibraryManager.Data.Data
 				cmd.ExecuteNonQuery();
 			}
 		}
-
-		// ================= USERS =================
 		public List<User> GetUsers()
 		{
 			var list = new List<User>();
@@ -220,7 +214,6 @@ namespace LibraryManager.Data.Data
 			}
 		}
 
-		// ================= FAVORITES =================
 
 		public List<Song> GetFavorites(int userId)
 		{

@@ -13,7 +13,6 @@ namespace LibraryManager.Core.Data
 		void AddUser(User user);
 		void DeleteUser(int id);
 
-		// ✅ НОВО: Favorites
 		List<Song> GetFavorites(int userId);
 		void AddFavorite(int userId, int songId);
 		void RemoveFavorite(int userId, int songId);
